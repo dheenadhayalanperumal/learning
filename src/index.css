@@ -1,3 +1,6 @@
+/* Import Better Handwriting Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Homemade+Apple&family=Permanent+Marker&family=Architects+Daughter&family=Shadows+Into+Light&display=swap');
+
 /* Global Styles */
 :root {
   --primary-color: #4caf50;
@@ -202,6 +205,8 @@ body {
   max-height: 100%;
   border-radius: 8px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #ffffff; /* Clean white background for better letter visibility */
+  border: 1px solid #e0e0e0; /* Subtle border for worksheet feel */
 }
 
 /* Game Controls */

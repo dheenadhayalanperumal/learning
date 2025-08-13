@@ -120,7 +120,7 @@ export const letterTypes = {
     subtitle: '(A, B, C...)',
     color: '#ff9800',
     letters: englishCapitalLetters,
-    font: 'Arial, "Helvetica Neue", Helvetica, sans-serif'
+    font: '"Caveat", cursive'
   },
   'englishSmall': {
     id: 'englishSmall',
@@ -128,7 +128,7 @@ export const letterTypes = {
     subtitle: '(a, b, c...)',
     color: '#9c27b0',
     letters: englishSmallLetters,
-    font: 'Arial, "Helvetica Neue", Helvetica, sans-serif'
+    font: '"Caveat", cursive'
   }
 };
 
@@ -153,6 +153,18 @@ export const getColorForLetterType = (type) => {
 export const getLetterSize = (letter, baseSize) => {
   const oversizedLetters = ['ஒ', 'ஔ', 'ம', 'ழ', 'W', 'M'];
   const undersizedLetters = ['இ', 'ஈ', 'உ', 'ஊ', 'I', 'l'];
+  
+  // Great Vibes font letters need different sizing for capital vs small
+  const englishCapitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const englishSmallLetters = 'abcdefghijklmnopqrstuvwxyz';
+  
+  if (englishCapitalLetters.includes(letter)) {
+    return Math.round(baseSize * 0.8); // Comfortable size for Caveat capitals
+  }
+  
+  if (englishSmallLetters.includes(letter)) {
+    return Math.round(baseSize * 1.125); // Increased by 0.5x (0.75 * 1.5 = 1.125) for Caveat lowercase
+  }
   
   if (oversizedLetters.includes(letter)) {
     return Math.round(baseSize * 0.85); // 15% smaller

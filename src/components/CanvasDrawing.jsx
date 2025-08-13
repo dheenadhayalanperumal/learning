@@ -23,7 +23,7 @@ const CanvasDrawing = ({ letter, letterType, letterIndex, savedStrokes = [], onD
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Draw letter outline (light gray) - larger size
+    // Draw letter outline with special handling for English letters
     const fontSize = getLetterSize(letter, size * 0.8); // Increased from 0.6 to 0.8
     const fontFamily = getFontForLetterType(letterType);
     
@@ -31,8 +31,22 @@ const CanvasDrawing = ({ letter, letterType, letterIndex, savedStrokes = [], onD
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'transparent';
-    ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
-    ctx.lineWidth = Math.max(2, fontSize / 60);
+    
+    // Special handling for English letters - brush lettering style
+    if (letterType === 'englishCapital' || letterType === 'englishSmall') {
+      ctx.strokeStyle = 'rgba(120, 120, 120, 0.8)'; // Brush-like gray color
+      // Brush lettering style line width
+      ctx.lineWidth = letterType === 'englishCapital' ? 
+        Math.max(2.5, fontSize / 25) :  // Brush-like thickness for capitals
+        Math.max(2, fontSize / 30); // Brush-like thickness for small letters
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    } else {
+      // Tamil letters keep original styling
+      ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
+      ctx.lineWidth = Math.max(2, fontSize / 60);
+    }
+    
     // Move letter slightly up from center
     ctx.strokeText(letter, canvas.width / 2, (canvas.height / 2));
     
@@ -146,7 +160,7 @@ const CanvasDrawing = ({ letter, letterType, letterIndex, savedStrokes = [], onD
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Redraw letter outline
+    // Redraw letter outline with special handling for English letters
     const fontSize = getLetterSize(letter, canvas.width * 0.8); // Match the larger size
     const fontFamily = getFontForLetterType(letterType);
     
@@ -154,8 +168,22 @@ const CanvasDrawing = ({ letter, letterType, letterIndex, savedStrokes = [], onD
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'transparent';
-    ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
-    ctx.lineWidth = Math.max(2, fontSize / 60);
+    
+    // Special handling for English letters - brush lettering style
+    if (letterType === 'englishCapital' || letterType === 'englishSmall') {
+      ctx.strokeStyle = 'rgba(120, 120, 120, 0.8)'; // Brush-like gray color
+      // Brush lettering style line width
+      ctx.lineWidth = letterType === 'englishCapital' ? 
+        Math.max(2.5, fontSize / 25) :  // Brush-like thickness for capitals
+        Math.max(2, fontSize / 30); // Brush-like thickness for small letters
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    } else {
+      // Tamil letters keep original styling
+      ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
+      ctx.lineWidth = Math.max(2, fontSize / 60);
+    }
+    
     // Move letter slightly up from center (same as initial draw)
     ctx.strokeText(letter, canvas.width / 2, (canvas.height / 2));
     
