@@ -421,52 +421,160 @@ body {
   }
 }
 
-/* Landscape Mobile Adjustments */
+/* Enhanced Landscape Mobile Adjustments */
 @media (max-height: 500px) and (orientation: landscape) {
   .game-header {
-    min-height: 50px;
-    padding: 10px 20px;
+    min-height: 40px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .game-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .progress {
+    font-size: 0.8rem;
+  }
+  
+  .letter-display-area {
+    flex: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .game-controls {
-    min-height: 50px;
-    padding: 8px 20px;
+    min-height: 45px;
+    padding: 5px 15px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
+    gap: 5px;
   }
   
   .game-container {
-    padding-bottom: 60px; /* Space for fixed controls in landscape */
+    padding-bottom: 55px; /* Space for fixed controls in landscape */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
   .control-button {
-    height: 40px;
-    font-size: 0.9rem;
+    height: 35px;
+    font-size: 0.8rem;
+    padding: 0 8px;
+    max-width: 80px;
   }
   
+  /* Menu adjustments for landscape */
   .game-menu {
-    padding: 10px;
+    padding: 5px 10px;
+    justify-content: flex-start;
+    overflow-y: auto;
   }
   
   .game-title {
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin-bottom: 2px;
   }
   
   .game-subtitle {
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
   
   .letter-type-grid {
-    gap: 15px;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: none;
+    width: 100%;
   }
   
   .letter-type-button {
-    min-height: 80px;
-    padding: 15px 10px;
+    min-height: 60px;
+    padding: 8px 5px;
+  }
+  
+  .button-title {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+  
+  .button-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+  
+  .button-count {
+    font-size: 0.7rem;
+  }
+  
+  /* Canvas/Drawing area adjustments for landscape */
+  .phaser-game-container {
+    margin: 5px;
+    height: calc(100vh - 140px); /* Adjust for header and controls */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .phaser-game-container canvas {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 140px);
+  }
+}
+
+/* Additional landscape adjustments for very short screens */
+@media (max-height: 400px) and (orientation: landscape) {
+  .game-header {
+    min-height: 35px;
+    padding: 3px 10px;
+  }
+  
+  .game-header h2 {
+    font-size: 1rem;
+  }
+  
+  .progress {
+    font-size: 0.75rem;
+  }
+  
+  .letter-display-area {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  .game-controls {
+    min-height: 40px;
+    padding: 3px 10px;
+  }
+  
+  .control-button {
+    height: 30px;
+    font-size: 0.75rem;
+    padding: 0 6px;
+    max-width: 70px;
+  }
+  
+  .game-container {
+    padding-bottom: 50px;
+  }
+  
+  /* Canvas adjustments for very short landscape screens */
+  .phaser-game-container {
+    margin: 3px;
+    height: calc(100vh - 120px);
+  }
+  
+  .phaser-game-container canvas {
+    max-width: calc(100vw - 15px);
+    max-height: calc(100vh - 120px);
   }
 }
 
