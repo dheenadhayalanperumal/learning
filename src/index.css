@@ -207,6 +207,8 @@ body {
 /* Game Controls */
 .game-controls {
   display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
@@ -216,6 +218,7 @@ body {
   min-height: 80px;
   position: relative;
   z-index: 10;
+  border-radius: 15px;
 }
 
 .control-button {
