@@ -1,17 +1,17 @@
 // Tamil Vowels (உயிர் எழுத்து) - 12 letters
 export const tamilVowels = [
-  { letter: 'அ', transliteration: 'a', audio: '/audio/tamil/a.mp3' },
-  { letter: 'ஆ', transliteration: 'aa', audio: '/audio/tamil/aa.mp3' },
-  { letter: 'இ', transliteration: 'i', audio: '/audio/tamil/i.mp3' },
-  { letter: 'ஈ', transliteration: 'ii', audio: '/audio/tamil/ii.mp3' },
-  { letter: 'உ', transliteration: 'u', audio: '/audio/tamil/u.mp3' },
-  { letter: 'ஊ', transliteration: 'uu', audio: '/audio/tamil/uu.mp3' },
-  { letter: 'எ', transliteration: 'e', audio: '/audio/tamil/e.mp3' },
-  { letter: 'ஏ', transliteration: 'ee', audio: '/audio/tamil/ee.mp3' },
-  { letter: 'ஐ', transliteration: 'ai', audio: '/audio/tamil/ai.mp3' },
-  { letter: 'ஒ', transliteration: 'o', audio: '/audio/tamil/o.mp3' },
-  { letter: 'ஓ', transliteration: 'oo', audio: '/audio/tamil/oo.mp3' },
-  { letter: 'ஔ', transliteration: 'au', audio: '/audio/tamil/au.mp3' }
+  { letter: 'அ', transliteration: 'a', audio: '/audio/tamil/a.wav' },
+  { letter: 'ஆ', transliteration: 'aa', audio: '/audio/tamil/aa.wav' },
+  { letter: 'இ', transliteration: 'i', audio: '/audio/tamil/I.wav' },
+  { letter: 'ஈ', transliteration: 'ii', audio: '/audio/tamil/II.wav' },
+  { letter: 'உ', transliteration: 'u', audio: '/audio/tamil/u.wav' },
+  { letter: 'ஊ', transliteration: 'uu', audio: '/audio/tamil/uu.wav' },
+  { letter: 'எ', transliteration: 'e', audio: '/audio/tamil/e.wav' },
+  { letter: 'ஏ', transliteration: 'ee', audio: '/audio/tamil/ee.wav' },
+  { letter: 'ஐ', transliteration: 'ai', audio: '/audio/tamil/ai.wav' },
+  { letter: 'ஒ', transliteration: 'o', audio: '/audio/tamil/o.wav' },
+  { letter: 'ஓ', transliteration: 'oo', audio: '/audio/tamil/oo.wav' },
+  { letter: 'ஔ', transliteration: 'au', audio: '/audio/tamil/au.wav' }
 ];
 
 // Tamil Consonants (மெய் எழுத்து) - 18 letters
@@ -176,3 +176,4 @@ export const getLetterSize = (letter, baseSize) => {
   
   return baseSize;
 };
+
