@@ -1,5 +1,6 @@
 /* Import Better Handwriting Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Homemade+Apple&family=Permanent+Marker&family=Architects+Daughter&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Homemade+Apple&family=Permanent+Marker&family=Architects+Daughter&family=Shadows+Into+Light&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&display=swap');
+@import url('https://use.typekit.net/dlj8tul.css');
 
 /* Global Styles */
 :root {
@@ -22,7 +23,15 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 body {
@@ -39,17 +48,32 @@ body {
 
 #root {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+#root::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 /* App Container */
 .app {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.app::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 /* Game Menu Styles */
@@ -58,9 +82,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
   padding: 20px;
   text-align: center;
+  overflow: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.game-menu::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 .game-title {
@@ -79,6 +111,7 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.language-grid,
 .letter-type-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -87,6 +120,27 @@ body {
   max-width: 600px;
 }
 
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-2px);
+}
+
+.language-button,
 .letter-type-button {
   background: var(--white);
   border: none;
@@ -104,11 +158,13 @@ body {
   overflow: hidden;
 }
 
+.language-button:hover,
 .letter-type-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+.language-button:active,
 .letter-type-button:active {
   transform: translateY(0);
 }
@@ -149,12 +205,44 @@ body {
   background: var(--purple-color);
 }
 
+.letter-type-button.hindi-vowels {
+  background: #e91e63;
+}
+
+.letter-type-button.hindi-consonants {
+  background: #673ab7;
+}
+
+.letter-type-button.telugu-vowels {
+  background: #ff5722;
+}
+
+.letter-type-button.telugu-consonants {
+  background: #3f51b5;
+}
+
+.letter-type-button.malayalam-vowels {
+  background: #8bc34a;
+}
+
+.letter-type-button.malayalam-consonants {
+  background: #009688;
+}
+
 /* Game Container */
 .game-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
+  overflow: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.game-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 .game-header {
@@ -180,13 +268,13 @@ body {
 
 /* Letter Display Area */
 .letter-display-area {
-  flex: 1;
+  height: 75vh; /* Set to 75% of viewport height */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Changed from center to flex-start */
-  padding-top: 30px; /* Add top padding to move canvas up */
+  align-items: center;
+  padding: 20px;
   position: relative;
-  min-height: 0;
+  min-height: 400px; /* Minimum height for small screens */
 }
 
 .phaser-game-container {
@@ -197,12 +285,12 @@ body {
   align-items: center;
   background: #f8f9fa;
   border-radius: 8px;
-  margin: 10px;
+  margin: 0;
 }
 
 .phaser-game-container canvas {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   background: #ffffff; /* Clean white background for better letter visibility */
@@ -267,9 +355,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
+  height: 100vh;
   padding: 20px;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .completion-title {
@@ -325,14 +419,23 @@ body {
     padding-bottom: 70px; /* Space for fixed controls */
   }
   
+  .language-grid,
   .letter-type-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
   }
   
+  .language-button,
   .letter-type-button {
     min-height: 100px;
     padding: 25px 15px;
+  }
+
+  .back-button {
+    top: 10px;
+    left: 10px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
   
   .game-controls {
@@ -368,6 +471,7 @@ body {
 
 /* Tablet Adjustments */
 @media (min-width: 768px) and (max-width: 1024px) {
+  .language-grid,
   .letter-type-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 700px;
@@ -406,6 +510,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   
+  .language-grid,
   .letter-type-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 800px;
@@ -438,12 +543,12 @@ body {
   }
   
   .letter-display-area {
-    flex: 1;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 75vh;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 300px;
   }
   
   .game-controls {
@@ -489,6 +594,7 @@ body {
     margin-bottom: 10px;
   }
   
+  .language-grid,
   .letter-type-grid {
     gap: 8px;
     grid-template-columns: repeat(2, 1fr);
@@ -496,6 +602,7 @@ body {
     width: 100%;
   }
   
+  .language-button,
   .letter-type-button {
     min-height: 60px;
     padding: 8px 5px;
@@ -517,16 +624,16 @@ body {
   
   /* Canvas/Drawing area adjustments for landscape */
   .phaser-game-container {
-    margin: 5px;
-    height: calc(100vh - 140px); /* Adjust for header and controls */
+    margin: 0;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
   .phaser-game-container canvas {
-    max-width: calc(100vw - 20px);
-    max-height: calc(100vh - 140px);
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -546,8 +653,9 @@ body {
   }
   
   .letter-display-area {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    height: 75vh;
+    padding: 5px;
+    min-height: 250px;
   }
   
   .game-controls {
@@ -568,13 +676,13 @@ body {
   
   /* Canvas adjustments for very short landscape screens */
   .phaser-game-container {
-    margin: 3px;
-    height: calc(100vh - 120px);
+    margin: 0;
+    height: 100%;
   }
   
   .phaser-game-container canvas {
-    max-width: calc(100vw - 15px);
-    max-height: calc(100vh - 120px);
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -599,6 +707,67 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Adobe Handwriting Ernie Font for English Small Letters */
+.english-small-letter {
+  font-family: "adobe-handwriting-ernie", cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Apply to English capital letter content */
+.letter-type-button.english-capital,
+.letter-type-button.english-capital * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Apply to English small letter content */
+.letter-type-button.english-small,
+.letter-type-button.english-small * {
+  font-family: "adobe-handwriting-ernie", cursive;
+}
+
+/* Hindi letter fonts */
+.hindi-letter {
+  font-family: "Noto Sans Devanagari", "Mangal", serif;
+  font-weight: 400;
+}
+
+/* Apply to Hindi letter content */
+.letter-type-button.hindi-vowels,
+.letter-type-button.hindi-vowels *,
+.letter-type-button.hindi-consonants,
+.letter-type-button.hindi-consonants * {
+  font-family: "Noto Sans Devanagari", "Mangal", serif;
+}
+
+/* Telugu letter fonts */
+.telugu-letter {
+  font-family: "Noto Sans Telugu", "Gautami", serif;
+  font-weight: 400;
+}
+
+/* Apply to Telugu letter content */
+.letter-type-button.telugu-vowels,
+.letter-type-button.telugu-vowels *,
+.letter-type-button.telugu-consonants,
+.letter-type-button.telugu-consonants * {
+  font-family: "Noto Sans Telugu", "Gautami", serif;
+}
+
+/* Malayalam letter fonts */
+.malayalam-letter {
+  font-family: "Noto Sans Malayalam", "Kartika", serif;
+  font-weight: 400;
+}
+
+/* Apply to Malayalam letter content */
+.letter-type-button.malayalam-vowels,
+.letter-type-button.malayalam-vowels *,
+.letter-type-button.malayalam-consonants,
+.letter-type-button.malayalam-consonants * {
+  font-family: "Noto Sans Malayalam", "Kartika", serif;
 }
 
 /* Loading indicator */

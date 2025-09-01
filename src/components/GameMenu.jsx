@@ -1,30 +1,119 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { letterTypes } from '../data/letters.js';
 
 const GameMenu = ({ onLetterTypeSelect }) => {
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
   const handleLetterTypeClick = useCallback((letterType) => {
     onLetterTypeSelect(letterType);
   }, [onLetterTypeSelect]);
 
-  // Memoize letter types array to prevent re-renders
-  const letterTypesList = useMemo(() => Object.values(letterTypes), []);
+  const handleLanguageSelect = useCallback((language) => {
+    setSelectedLanguage(language);
+  }, []);
+
+  const handleBackToLanguages = useCallback(() => {
+    setSelectedLanguage(null);
+  }, []);
+
+  // Language structure
+  const languages = useMemo(() => ({
+    tamil: {
+      id: 'tamil',
+      title: 'தமிழ்',
+      subtitle: 'Tamil',
+      color: '#4caf50',
+      types: [
+        letterTypes.uyir,
+        letterTypes.uyirMei
+      ]
+    },
+    english: {
+      id: 'english',
+      title: 'English',
+      subtitle: 'English',
+      color: '#2196f3',
+      types: [
+        letterTypes.englishCapital,
+        letterTypes.englishSmall
+      ]
+    },
+    hindi: {
+      id: 'hindi',
+      title: 'हिंदी',
+      subtitle: 'Hindi',
+      color: '#e91e63',
+      types: [
+        letterTypes.hindiVowels,
+        letterTypes.hindiConsonants
+      ]
+    },
+    telugu: {
+      id: 'telugu',
+      title: 'తెలుగు',
+      subtitle: 'Telugu',
+      color: '#ff5722',
+      types: [
+        letterTypes.teluguVowels,
+        letterTypes.teluguConsonants
+      ]
+    },
+    malayalam: {
+      id: 'malayalam',
+      title: 'മലയാളം',
+      subtitle: 'Malayalam',
+      color: '#8bc34a',
+      types: [
+        letterTypes.malayalamVowels,
+        letterTypes.malayalamConsonants
+      ]
+    }
+  }), []);
+
+  if (selectedLanguage) {
+    const language = languages[selectedLanguage];
+    return (
+      <div className="game-menu fade-in">
+        <button className="back-button" onClick={handleBackToLanguages}>
+          ← Back to Languages
+        </button>
+        <h1 className="game-title">{language.title}</h1>
+        <h2 className="game-subtitle">Choose Letter Type</h2>
+        
+        <div className="letter-type-grid">
+          {language.types.map((type) => (
+            <button
+              key={type.id}
+              className={`letter-type-button ${getButtonClass(type.id)}`}
+              style={{ backgroundColor: type.color }}
+              onClick={() => handleLetterTypeClick(type.id)}
+            >
+              <div className="button-title">{type.title}</div>
+              <div className="button-subtitle">{type.subtitle}</div>
+              <div className="button-count">{type.letters.length} letters</div>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="game-menu fade-in">
-      <h1 className="game-title">தமிழ் எழுத்துக்கள்</h1>
-      <h2 className="game-subtitle">Draw & Learn</h2>
+      <h1 className="game-title">Draw and Learn</h1>
+      <h2 className="game-subtitle">Choose Your Language</h2>
       
-      <div className="letter-type-grid">
-        {letterTypesList.map((type) => (
+      <div className="language-grid">
+        {Object.values(languages).map((language) => (
           <button
-            key={type.id}
-            className={`letter-type-button ${getButtonClass(type.id)}`}
-            style={{ backgroundColor: type.color }}
-            onClick={() => handleLetterTypeClick(type.id)}
+            key={language.id}
+            className="language-button"
+            style={{ backgroundColor: language.color }}
+            onClick={() => handleLanguageSelect(language.id)}
           >
-            <div className="button-title">{type.title}</div>
-            <div className="button-subtitle">{type.subtitle}</div>
-            <div className="button-count">{type.letters.length} letters</div>
+            <div className="button-title">{language.title}</div>
+            <div className="button-subtitle">{language.subtitle}</div>
+            <div className="button-count">{language.types.length} categories</div>
           </button>
         ))}
       </div>
@@ -37,7 +126,13 @@ const getButtonClass = (typeId) => {
     'uyir': 'tamil-vowels',
     'uyirMei': 'tamil-consonants',
     'englishCapital': 'english-capital',
-    'englishSmall': 'english-small'
+    'englishSmall': 'english-small',
+    'hindiVowels': 'hindi-vowels',
+    'hindiConsonants': 'hindi-consonants',
+    'teluguVowels': 'telugu-vowels',
+    'teluguConsonants': 'telugu-consonants',
+    'malayalamVowels': 'malayalam-vowels',
+    'malayalamConsonants': 'malayalam-consonants'
   };
   return classMap[typeId] || '';
 };
