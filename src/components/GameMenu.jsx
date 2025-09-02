@@ -1,8 +1,29 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { letterTypes } from '../data/letters.js';
 
 const GameMenu = ({ onLetterTypeSelect }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
+
+  // Initialize language from URL on component mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const language = params.get('lang');
+    if (language) {
+      setSelectedLanguage(language);
+    }
+  }, []);
+
+  // Handle browser back/forward navigation within GameMenu
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const language = params.get('lang');
+      setSelectedLanguage(language || null);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const handleLetterTypeClick = useCallback((letterType) => {
     onLetterTypeSelect(letterType);
@@ -10,10 +31,14 @@ const GameMenu = ({ onLetterTypeSelect }) => {
 
   const handleLanguageSelect = useCallback((language) => {
     setSelectedLanguage(language);
+    // Update URL to include language selection
+    window.history.pushState({}, '', `/?lang=${language}`);
   }, []);
 
   const handleBackToLanguages = useCallback(() => {
     setSelectedLanguage(null);
+    // Update URL to remove language selection
+    window.history.pushState({}, '', '/');
   }, []);
 
   // Language structure
