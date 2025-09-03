@@ -1,5 +1,5 @@
 /* Import Better Handwriting Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Homemade+Apple&family=Permanent+Marker&family=Architects+Daughter&family=Shadows+Into+Light&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Homemade+Apple&family=Permanent+Marker&family=Architects+Daughter&family=Shadows+Into+Light&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&family=Noto+Sans+Kannada:wght@400;700&display=swap');
 @import url('https://use.typekit.net/dlj8tul.css');
 
 /* Global Styles */
@@ -158,6 +158,29 @@ body {
   overflow: hidden;
 }
 
+.language-button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.language-button-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.language-button-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
 .language-button:hover,
 .letter-type-button:hover {
   transform: translateY(-2px);
@@ -170,22 +193,34 @@ body {
 }
 
 .button-title {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: clamp(2.5rem, 3vw, 1.4rem);
   font-weight: bold;
   color: var(--white);
   margin-bottom: 8px;
 }
 
 .button-subtitle {
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.99rem, 2.5vw, 1.1rem);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 5px;
 }
 
 .button-count {
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(0.89rem, 2vw, 1rem);
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
+}
+
+/* Adjust text alignment for language buttons in left-right layout */
+.language-button-left .button-title,
+.language-button-left .button-subtitle {
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.language-button-right .button-count {
+  text-align: right;
+  margin-bottom: 0;
 }
 
 /* Letter type specific colors */
@@ -227,6 +262,14 @@ body {
 
 .letter-type-button.malayalam-consonants {
   background: #009688;
+}
+
+.letter-type-button.kannada-vowels {
+  background: #e91e63;
+}
+
+.letter-type-button.kannada-consonants {
+  background: #3f51b5;
 }
 
 /* Game Container */

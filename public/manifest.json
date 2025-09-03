@@ -1,19 +1,108 @@
 {
-  "name": "Tamil Aathichudi Draw & Learn",
-  "short_name": "Tamil Letters",
-  "description": "Interactive letter tracing game for Tamil and English letters",
+  "name": "Draw & Learn - Interactive Letter Tracing Game for Kids",
+  "short_name": "Draw & Learn",
+  "description": "Fun educational letter tracing game for children ages 3-8. Learn Tamil, English, Hindi, Telugu, Malayalam, and Kannada alphabets through interactive drawing. Perfect for parents teaching kids at home!",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#4caf50",
   "orientation": "any",
-  "categories": ["education", "games", "kids"],
+  "categories": ["education", "games", "kids", "learning", "children", "alphabet", "tracing"],
+  "lang": "en",
+  "dir": "ltr",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Tamil Letters",
+      "short_name": "Tamil",
+      "description": "Learn Tamil alphabet - vowels and consonants",
+      "url": "/?lang=tamil",
+      "icons": [
+        {
+          "src": "/icon-tamil-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "English Letters",
+      "short_name": "English",
+      "description": "Learn English alphabet - uppercase and lowercase",
+      "url": "/?lang=english",
+      "icons": [
+        {
+          "src": "/icon-english-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Hindi Letters",
+      "short_name": "Hindi",
+      "description": "Learn Hindi Devanagari script - vowels and consonants",
+      "url": "/?lang=hindi",
+      "icons": [
+        {
+          "src": "/icon-hindi-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Choose your language to start learning"
+    },
+    {
+      "src": "/screenshot-tracing.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Interactive letter tracing with audio feedback"
+    }
+  ],
   "icons": [
+    {
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icon-512.png",

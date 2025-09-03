@@ -1,0 +1,33 @@
+# Robots.txt for Draw & Learn - Educational Game for Kids
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://drawandlearn.app/sitemap.xml
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Allow access to all educational content
+Allow: /game*
+Allow: /completed*
+Allow: /?lang=*
+
+# Block any non-essential paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Educational content is family-friendly
+# Target: Parents, Teachers, Children (ages 3-8)
+# Content: Letter tracing games in multiple Indian languages
+# Languages: Tamil, English, Hindi, Telugu, Malayalam, Kannada

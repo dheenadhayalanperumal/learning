@@ -309,6 +309,78 @@ export const malayalamNumbers = [
   { letter: '൯', transliteration: '9', audio: '/audio/malayalam/9.mp3' }
 ];
 
+// Kannada Vowels (ಸ್ವರಗಳು) - 13 letters
+export const kannadaVowels = [
+  { letter: 'ಅ', transliteration: 'a', audio: '/audio/kannada/a.mp3' },
+  { letter: 'ಆ', transliteration: 'aa', audio: '/audio/kannada/aa.mp3' },
+  { letter: 'ಇ', transliteration: 'i', audio: '/audio/kannada/i.mp3' },
+  { letter: 'ಈ', transliteration: 'ii', audio: '/audio/kannada/ii.mp3' },
+  { letter: 'ಉ', transliteration: 'u', audio: '/audio/kannada/u.mp3' },
+  { letter: 'ಊ', transliteration: 'uu', audio: '/audio/kannada/uu.mp3' },
+  { letter: 'ಋ', transliteration: 'ri', audio: '/audio/kannada/ri.mp3' },
+  { letter: 'ೠ', transliteration: 'rii', audio: '/audio/kannada/rii.mp3' },
+  { letter: 'ಌ', transliteration: 'li', audio: '/audio/kannada/li.mp3' },
+  { letter: 'ಎ', transliteration: 'e', audio: '/audio/kannada/e.mp3' },
+  { letter: 'ಏ', transliteration: 'ee', audio: '/audio/kannada/ee.mp3' },
+  { letter: 'ಐ', transliteration: 'ai', audio: '/audio/kannada/ai.mp3' },
+  { letter: 'ಒ', transliteration: 'o', audio: '/audio/kannada/o.mp3' },
+  { letter: 'ಓ', transliteration: 'oo', audio: '/audio/kannada/oo.mp3' },
+  { letter: 'ಔ', transliteration: 'au', audio: '/audio/kannada/au.mp3' }
+];
+
+// Kannada Consonants (ವ್ಯಞ್ಜನಗಳು) - 34 letters
+export const kannadaConsonants = [
+  { letter: 'ಕ', transliteration: 'ka', audio: '/audio/kannada/ka.mp3' },
+  { letter: 'ಖ', transliteration: 'kha', audio: '/audio/kannada/kha.mp3' },
+  { letter: 'ಗ', transliteration: 'ga', audio: '/audio/kannada/ga.mp3' },
+  { letter: 'ಘ', transliteration: 'gha', audio: '/audio/kannada/gha.mp3' },
+  { letter: 'ಙ', transliteration: 'nga', audio: '/audio/kannada/nga.mp3' },
+  { letter: 'ಚ', transliteration: 'cha', audio: '/audio/kannada/cha.mp3' },
+  { letter: 'ಛ', transliteration: 'chha', audio: '/audio/kannada/chha.mp3' },
+  { letter: 'ಜ', transliteration: 'ja', audio: '/audio/kannada/ja.mp3' },
+  { letter: 'ಝ', transliteration: 'jha', audio: '/audio/kannada/jha.mp3' },
+  { letter: 'ಞ', transliteration: 'nya', audio: '/audio/kannada/nya.mp3' },
+  { letter: 'ಟ', transliteration: 'ta', audio: '/audio/kannada/ta.mp3' },
+  { letter: 'ಠ', transliteration: 'tha', audio: '/audio/kannada/tha.mp3' },
+  { letter: 'ಡ', transliteration: 'da', audio: '/audio/kannada/da.mp3' },
+  { letter: 'ಢ', transliteration: 'dha', audio: '/audio/kannada/dha.mp3' },
+  { letter: 'ಣ', transliteration: 'na', audio: '/audio/kannada/na.mp3' },
+  { letter: 'ತ', transliteration: 'ta', audio: '/audio/kannada/ta2.mp3' },
+  { letter: 'ಥ', transliteration: 'tha', audio: '/audio/kannada/tha2.mp3' },
+  { letter: 'ದ', transliteration: 'da', audio: '/audio/kannada/da2.mp3' },
+  { letter: 'ಧ', transliteration: 'dha', audio: '/audio/kannada/dha2.mp3' },
+  { letter: 'ನ', transliteration: 'na', audio: '/audio/kannada/na2.mp3' },
+  { letter: 'ಪ', transliteration: 'pa', audio: '/audio/kannada/pa.mp3' },
+  { letter: 'ಫ', transliteration: 'pha', audio: '/audio/kannada/pha.mp3' },
+  { letter: 'ಬ', transliteration: 'ba', audio: '/audio/kannada/ba.mp3' },
+  { letter: 'ಭ', transliteration: 'bha', audio: '/audio/kannada/bha.mp3' },
+  { letter: 'ಮ', transliteration: 'ma', audio: '/audio/kannada/ma.mp3' },
+  { letter: 'ಯ', transliteration: 'ya', audio: '/audio/kannada/ya.mp3' },
+  { letter: 'ರ', transliteration: 'ra', audio: '/audio/kannada/ra.mp3' },
+  { letter: 'ಱ', transliteration: 'rra', audio: '/audio/kannada/rra.mp3' },
+  { letter: 'ಲ', transliteration: 'la', audio: '/audio/kannada/la.mp3' },
+  { letter: 'ಳ', transliteration: 'lla', audio: '/audio/kannada/lla.mp3' },
+  { letter: 'ವ', transliteration: 'va', audio: '/audio/kannada/va.mp3' },
+  { letter: 'ಶ', transliteration: 'sha', audio: '/audio/kannada/sha.mp3' },
+  { letter: 'ಷ', transliteration: 'shha', audio: '/audio/kannada/shha.mp3' },
+  { letter: 'ಸ', transliteration: 'sa', audio: '/audio/kannada/sa.mp3' },
+  { letter: 'ಹ', transliteration: 'ha', audio: '/audio/kannada/ha.mp3' }
+];
+
+// Kannada Numbers (ಸಂಖ್ಯೆಗಳು) - 10 numbers
+export const kannadaNumbers = [
+  { letter: '೦', transliteration: '0', audio: '/audio/kannada/0.mp3' },
+  { letter: '೧', transliteration: '1', audio: '/audio/kannada/1.mp3' },
+  { letter: '೨', transliteration: '2', audio: '/audio/kannada/2.mp3' },
+  { letter: '೩', transliteration: '3', audio: '/audio/kannada/3.mp3' },
+  { letter: '೪', transliteration: '4', audio: '/audio/kannada/4.mp3' },
+  { letter: '೫', transliteration: '5', audio: '/audio/kannada/5.mp3' },
+  { letter: '೬', transliteration: '6', audio: '/audio/kannada/6.mp3' },
+  { letter: '೭', transliteration: '7', audio: '/audio/kannada/7.mp3' },
+  { letter: '೮', transliteration: '8', audio: '/audio/kannada/8.mp3' },
+  { letter: '೯', transliteration: '9', audio: '/audio/kannada/9.mp3' }
+];
+
 // Letter type configurations
 export const letterTypes = {
   'uyir': {
@@ -414,6 +486,30 @@ export const letterTypes = {
     color: '#00bcd4',
     letters: malayalamNumbers,
     font: '"Noto Sans Malayalam", "Kartika", serif'
+  },
+  'kannadaVowels': {
+    id: 'kannadaVowels',
+    title: 'ಸ್ವರಗಳು',
+    subtitle: '(Kannada Vowels)',
+    color: '#e91e63',
+    letters: kannadaVowels,
+    font: '"Noto Sans Kannada", "Tunga", serif'
+  },
+  'kannadaConsonants': {
+    id: 'kannadaConsonants',
+    title: 'ವ್ಯಞ್ಜನಗಳು',
+    subtitle: '(Kannada Consonants)',
+    color: '#3f51b5',
+    letters: kannadaConsonants,
+    font: '"Noto Sans Kannada", "Tunga", serif'
+  },
+  'kannadaNumbers': {
+    id: 'kannadaNumbers',
+    title: 'ಸಂಖ್ಯೆಗಳು',
+    subtitle: '(Kannada Numbers)',
+    color: '#607d8b',
+    letters: kannadaNumbers,
+    font: '"Noto Sans Kannada", "Tunga", serif'
   }
 };
 
@@ -452,6 +548,9 @@ export const getLetterSize = (letter, baseSize) => {
   // Malayalam letters - check if it's a Malayalam character
   const malayalamLetters = 'അആഇഈഉഊഋഌഎഏഐഒഓഔകഖഗഘങചഛജഝഞടഠഡഢണതഥദധനപഫബഭമയരരലളഴവശഷസഹ൦൧൨൩൪൫൬൭൮൯';
   
+  // Kannada letters - check if it's a Kannada character
+  const kannadaLetters = 'ಅಆಇಈಉಊಋೠಌಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಱಲಳವಶಷಸಹ೦೧೨೩೪೫೬೭೮೯';
+  
   if (englishCapitalLetters.includes(letter)) {
     return Math.round(baseSize * 0.8); // Comfortable size for Caveat capitals
   }
@@ -470,6 +569,10 @@ export const getLetterSize = (letter, baseSize) => {
   
   if (malayalamLetters.includes(letter)) {
     return Math.round(baseSize * 0.6); // Even smaller for Malayalam script to fit drawing area
+  }
+  
+  if (kannadaLetters.includes(letter)) {
+    return Math.round(baseSize * 0.7); // Appropriate size for Kannada script to fit drawing area
   }
   
   if (oversizedLetters.includes(letter)) {

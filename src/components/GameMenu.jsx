@@ -92,6 +92,16 @@ const GameMenu = ({ onLetterTypeSelect }) => {
         letterTypes.malayalamVowels,
         letterTypes.malayalamConsonants
       ]
+    },
+    kannada: {
+      id: 'kannada',
+      title: 'ಕನ್ನಡ',
+      subtitle: 'Kannada',
+      color: '#ff9800',
+      types: [
+        letterTypes.kannadaVowels,
+        letterTypes.kannadaConsonants
+      ]
     }
   }), []);
 
@@ -136,9 +146,17 @@ const GameMenu = ({ onLetterTypeSelect }) => {
             style={{ backgroundColor: language.color }}
             onClick={() => handleLanguageSelect(language.id)}
           >
-            <div className="button-title">{language.title}</div>
-            <div className="button-subtitle">{language.subtitle}</div>
-            <div className="button-count">{language.types.length} categories</div>
+            <div className="language-button-content">
+              <div className="language-button-left">
+                <div className="button-title">{language.title}</div>
+                
+              </div>
+              <div className="language-button-right">
+                
+              <div className="button-subtitle">{language.subtitle}</div>
+                <div className="button-count">{language.types.length} categories</div>
+              </div>
+            </div>
           </button>
         ))}
       </div>
@@ -157,7 +175,9 @@ const getButtonClass = (typeId) => {
     'teluguVowels': 'telugu-vowels',
     'teluguConsonants': 'telugu-consonants',
     'malayalamVowels': 'malayalam-vowels',
-    'malayalamConsonants': 'malayalam-consonants'
+    'malayalamConsonants': 'malayalam-consonants',
+    'kannadaVowels': 'kannada-vowels',
+    'kannadaConsonants': 'kannada-consonants'
   };
   return classMap[typeId] || '';
 };

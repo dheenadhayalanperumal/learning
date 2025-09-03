@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://drawandlearn.app/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drawandlearn.app/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://drawandlearn.app/?lang=tamil"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://drawandlearn.app/?lang=hindi"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://drawandlearn.app/?lang=telugu"/>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://drawandlearn.app/?lang=malayalam"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://drawandlearn.app/?lang=kannada"/>
+  </url>
+
+  <!-- Language Selection Pages -->
+  <url>
+    <loc>https://drawandlearn.app/?lang=tamil</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/?lang=english</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/?lang=hindi</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/?lang=telugu</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/?lang=malayalam</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/?lang=kannada</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Tamil Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=uyir</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=uyirMei</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=englishCapital</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=englishSmall</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hindi Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=hindiVowels</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=hindiConsonants</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Telugu Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=teluguVowels</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=teluguConsonants</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Malayalam Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=malayalamVowels</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=malayalamConsonants</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Kannada Learning Pages -->
+  <url>
+    <loc>https://drawandlearn.app/game?type=kannadaVowels</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drawandlearn.app/game?type=kannadaConsonants</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

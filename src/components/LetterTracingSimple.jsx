@@ -51,7 +51,7 @@ function reducer(state, action) {
   }
 }
 
-const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu }) => {
+const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLanguageCategory }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { currentLetterIndex, drawingProgress, showNextAnimation, letterDrawings } = state;
 
@@ -125,9 +125,52 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu }) => {
 
   return (
     <div className="game-container fade-in">
-      <div className="game-header">
-        <h2>{letterTypeTitle}</h2>
-        <div className="progress">
+      {/* Previous button - top left */}
+      <button 
+        onClick={handlePrevious}
+        className="prev-button-top"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          background: isFirstLetter ? 'rgba(150, 150, 150, 0.3)' : 'rgba(255, 255, 255, 0.2)',
+          border: 'none',
+          borderRadius: '12px',
+          color: '#fff',
+          padding: '10px 20px',
+          fontSize: '1rem',
+          cursor: isFirstLetter ? 'not-allowed' : 'pointer',
+          backdropFilter: 'blur(10px)',
+          transition: 'all 0.3s ease',
+          zIndex: 100,
+          opacity: isFirstLetter ? 0.5 : 1
+        }}
+        disabled={isFirstLetter}
+      >
+        ← Prev
+      </button>
+
+      {/* Title - center top */}
+      <div className="game-header-top" style={{
+        position: 'absolute',
+        top: '20px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        textAlign: 'center',
+        zIndex: 100
+      }}>
+        <h2 style={{
+          color: '#fff',
+          margin: '0',
+          fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
+          fontWeight: 'bold',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+        }}>{letterTypeTitle}</h2>
+        <div style={{
+          color: 'rgba(255, 255, 255, 0.9)',
+          fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
+          marginTop: '4px'
+        }}>
           Letter {currentLetterIndex + 1} of {letters.length}
           {showNextAnimation && (
             <span style={{ color: '#4CAF50', marginLeft: '10px' }}>✓ Great! Click Next →</span>
@@ -135,7 +178,34 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu }) => {
         </div>
       </div>
 
-      <div className="letter-display-area">
+      {/* Next button - top right */}
+      <button 
+        onClick={handleNext} 
+        className="next-button-top"
+        style={{ 
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          backgroundColor: showNextAnimation ? '#4CAF50' : '#4CAF50',
+          border: 'none',
+          borderRadius: '12px',
+          color: '#fff',
+          padding: '12px 24px',
+          fontSize: '1rem',
+          cursor: 'pointer',
+          transform: showNextAnimation ? 'scale(1.05)' : 'scale(1)',
+          boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : '0 4px 12px rgba(0, 0, 0, 0.15)',
+          transition: 'all 0.3s ease',
+          zIndex: 100
+        }}
+      >
+        {isLastLetter ? 'Finish' : 'Next →'}
+      </button>
+
+      <div className="letter-display-area" style={{
+        marginTop: '100px', // Add space for top navigation
+        height: 'calc(75vh - 100px)' // Adjust height to account for top margin
+      }}>
         <CanvasDrawing
           letter={currentLetter.letter}
           letterType={letterType}
@@ -167,12 +237,11 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu }) => {
 
       <div className="game-controls">
         <button 
-          onClick={handlePrevious} 
+          onClick={onBackToLanguageCategory} 
           className="control-button"
           style={{ backgroundColor: '#666' }}
-          disabled={isFirstLetter}
         >
-          ← Prev
+          ← Back
         </button>
         
         <button 
@@ -188,19 +257,6 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu }) => {
           className="control-button clear-button"
         >
           🗑️ Clear
-        </button>
-        
-        <button 
-          onClick={handleNext} 
-          className="control-button next-button"
-          style={{ 
-            backgroundColor: showNextAnimation ? '#4CAF50' : '#4CAF50',
-            transform: showNextAnimation ? 'scale(1.05)' : 'scale(1)',
-            boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : 'none',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          {isLastLetter ? 'Finish' : 'Next →'}
         </button>
         
         <button 
