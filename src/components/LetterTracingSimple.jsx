@@ -125,29 +125,27 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
 
   return (
     <div className="game-container fade-in">
-      {/* Previous button - top left */}
+      {/* Back button - top left */}
       <button 
-        onClick={handlePrevious}
-        className="prev-button-top"
+        onClick={onBackToLanguageCategory} 
+        className="control-button"
         style={{
           position: 'absolute',
           top: '20px',
           left: '20px',
-          background: isFirstLetter ? 'rgba(150, 150, 150, 0.3)' : 'rgba(255, 255, 255, 0.2)',
+          backgroundColor: '#666',
           border: 'none',
           borderRadius: '12px',
           color: '#fff',
           padding: '10px 20px',
           fontSize: '1rem',
-          cursor: isFirstLetter ? 'not-allowed' : 'pointer',
+          cursor: 'pointer',
           backdropFilter: 'blur(10px)',
           transition: 'all 0.3s ease',
-          zIndex: 100,
-          opacity: isFirstLetter ? 0.5 : 1
+          zIndex: 100
         }}
-        disabled={isFirstLetter}
       >
-        ← Prev
+        ← Back
       </button>
 
       {/* Title - center top */}
@@ -178,28 +176,27 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
         </div>
       </div>
 
-      {/* Next button - top right */}
+      {/* Menu button - top right */}
       <button 
-        onClick={handleNext} 
-        className="next-button-top"
+        onClick={onBackToMenu} 
+        className="control-button menu-button"
         style={{ 
           position: 'absolute',
           top: '20px',
           right: '20px',
-          backgroundColor: showNextAnimation ? '#4CAF50' : '#4CAF50',
+          backgroundColor: '#2196F3',
           border: 'none',
           borderRadius: '12px',
           color: '#fff',
-          padding: '12px 24px',
+          padding: '10px 20px',
           fontSize: '1rem',
           cursor: 'pointer',
-          transform: showNextAnimation ? 'scale(1.05)' : 'scale(1)',
-          boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : '0 4px 12px rgba(0, 0, 0, 0.15)',
+          backdropFilter: 'blur(10px)',
           transition: 'all 0.3s ease',
           zIndex: 100
         }}
       >
-        {isLastLetter ? 'Finish' : 'Next →'}
+        🏠 Menu
       </button>
 
       <div className="letter-display-area" style={{
@@ -235,35 +232,100 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
         )}
       </div>
 
-      <div className="game-controls">
+      {/* Bottom button row */}
+      <div className="bottom-controls" style={{
+        position: 'absolute',
+        bottom: '20px',
+        left: '20px',
+        right: '20px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        zIndex: 100
+      }}>
+        {/* Previous button */}
         <button 
-          onClick={onBackToLanguageCategory} 
-          className="control-button"
-          style={{ backgroundColor: '#666' }}
+          onClick={handlePrevious}
+          className="prev-button-bottom"
+          style={{
+            background: isFirstLetter ? 'rgba(150, 150, 150, 0.3)' : 'rgba(255, 255, 255, 0.2)',
+            border: 'none',
+            borderRadius: '12px',
+            color: '#fff',
+            padding: '12px 16px',
+            fontSize: '1rem',
+            cursor: isFirstLetter ? 'not-allowed' : 'pointer',
+            backdropFilter: 'blur(10px)',
+            transition: 'all 0.3s ease',
+            opacity: isFirstLetter ? 0.5 : 1,
+            width: '90px',
+            height: '48px'
+          }}
+          disabled={isFirstLetter}
         >
-          ← Back
+          ← Prev
         </button>
-        
+
+        {/* Play button */}
         <button 
           onClick={handlePlayAudio} 
           className="control-button"
-          style={{ backgroundColor: '#9C27B0' }}
+          style={{ 
+            backgroundColor: '#9C27B0',
+            border: 'none',
+            borderRadius: '12px',
+            color: '#fff',
+            padding: '12px 16px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            width: '90px',
+            height: '48px'
+          }}
         >
           🔊 Play
         </button>
         
+        {/* Clear button */}
         <button 
           onClick={handleClear} 
           className="control-button clear-button"
+          style={{
+            backgroundColor: '#f44336',
+            border: 'none',
+            borderRadius: '12px',
+            color: '#fff',
+            padding: '12px 16px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            width: '90px',
+            height: '48px'
+          }}
         >
           🗑️ Clear
         </button>
-        
+
+        {/* Next button */}
         <button 
-          onClick={onBackToMenu} 
-          className="control-button menu-button"
+          onClick={handleNext} 
+          className="next-button-bottom"
+          style={{ 
+            backgroundColor: showNextAnimation ? '#4CAF50' : '#4CAF50',
+            border: 'none',
+            borderRadius: '12px',
+            color: '#fff',
+            padding: '12px 16px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            transform: showNextAnimation ? 'scale(1.05)' : 'scale(1)',
+            boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : '0 4px 12px rgba(0, 0, 0, 0.15)',
+            transition: 'all 0.3s ease',
+            width: '90px',
+            height: '48px'
+          }}
         >
-          🏠 Menu
+          {isLastLetter ? 'Finish' : 'Next →'}
         </button>
       </div>
     </div>
