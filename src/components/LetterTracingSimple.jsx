@@ -124,21 +124,23 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
   }
 
   return (
-    <div className="game-container fade-in">
+    <div className="game-container fade-in" style={{
+      paddingBottom: 'calc(clamp(80px, 15vh, 100px) + env(safe-area-inset-bottom, 0px))' // Add space for fixed bottom controls
+    }}>
       {/* Back button - top left */}
       <button 
         onClick={onBackToLanguageCategory} 
         className="control-button"
         style={{
           position: 'absolute',
-          top: '20px',
-          left: '20px',
+          top: 'clamp(10px, 2vw, 20px)',
+          left: 'clamp(10px, 2vw, 20px)',
           backgroundColor: '#666',
           border: 'none',
-          borderRadius: '12px',
+          borderRadius: 'clamp(8px, 1.5vw, 12px)',
           color: '#fff',
-          padding: '10px 20px',
-          fontSize: '1rem',
+          padding: 'clamp(8px, 1.5vw, 10px) clamp(12px, 3vw, 20px)',
+          fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
           cursor: 'pointer',
           backdropFilter: 'blur(10px)',
           transition: 'all 0.3s ease',
@@ -151,7 +153,7 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
       {/* Title - center top */}
       <div className="game-header-top" style={{
         position: 'absolute',
-        top: '20px',
+        top: 'clamp(10px, 2vw, 20px)',
         left: '50%',
         transform: 'translateX(-50%)',
         textAlign: 'center',
@@ -182,14 +184,14 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
         className="control-button menu-button"
         style={{ 
           position: 'absolute',
-          top: '20px',
-          right: '20px',
+          top: 'clamp(10px, 2vw, 20px)',
+          right: 'clamp(10px, 2vw, 20px)',
           backgroundColor: '#2196F3',
           border: 'none',
-          borderRadius: '12px',
+          borderRadius: 'clamp(8px, 1.5vw, 12px)',
           color: '#fff',
-          padding: '10px 20px',
-          fontSize: '1rem',
+          padding: 'clamp(8px, 1.5vw, 10px) clamp(12px, 3vw, 20px)',
+          fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
           cursor: 'pointer',
           backdropFilter: 'blur(10px)',
           transition: 'all 0.3s ease',
@@ -200,8 +202,8 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
       </button>
 
       <div className="letter-display-area" style={{
-        marginTop: '100px', // Add space for top navigation
-        height: 'calc(75vh - 100px)' // Adjust height to account for top margin
+        marginTop: 'clamp(80px, 15vw, 100px)', // Add space for top navigation
+        height: 'calc(75vh - clamp(80px, 15vw, 100px))' // Adjust height to account for top margin
       }}>
         <CanvasDrawing
           letter={currentLetter.letter}
@@ -234,32 +236,42 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
 
       {/* Bottom button row */}
       <div className="bottom-controls" style={{
-        position: 'absolute',
-        bottom: '20px',
-        left: '20px',
-        right: '20px',
+        position: 'fixed',
+        bottom: 'calc(clamp(15px, 3vh, 25px) + env(safe-area-inset-bottom, 0px))',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: 'min(calc(100% - 40px), 600px)',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 100
+        zIndex: 1000,
+        gap: 'clamp(8px, 2vw, 16px)',
+        background: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        padding: 'clamp(8px, 1.5vw, 12px)',
+        borderRadius: 'clamp(12px, 2vw, 16px)',
+        boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.2)',
+        border: '1px solid rgba(255, 255, 255, 0.3)'
       }}>
         {/* Previous button */}
         <button 
           onClick={handlePrevious}
           className="prev-button-bottom"
           style={{
-            background: isFirstLetter ? 'rgba(150, 150, 150, 0.3)' : 'rgba(255, 255, 255, 0.2)',
+            background: isFirstLetter ? '#9E9E9E' : '#FF9800',
             border: 'none',
-            borderRadius: '12px',
+            borderRadius: 'clamp(8px, 1.5vw, 12px)',
             color: '#fff',
-            padding: '12px 16px',
-            fontSize: '1rem',
+            padding: 'clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 20px)',
+            fontSize: 'clamp(0.75rem, 2.5vw, 1.1rem)',
             cursor: isFirstLetter ? 'not-allowed' : 'pointer',
-            backdropFilter: 'blur(10px)',
             transition: 'all 0.3s ease',
-            opacity: isFirstLetter ? 0.5 : 1,
-            width: '90px',
-            height: '48px'
+            opacity: isFirstLetter ? 0.6 : 1,
+            width: 'clamp(65px, 14vw, 120px)',
+            height: 'clamp(36px, 8vh, 50px)',
+            minWidth: '65px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
           }}
           disabled={isFirstLetter}
         >
@@ -273,14 +285,16 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
           style={{ 
             backgroundColor: '#9C27B0',
             border: 'none',
-            borderRadius: '12px',
+            borderRadius: 'clamp(8px, 1.5vw, 12px)',
             color: '#fff',
-            padding: '12px 16px',
-            fontSize: '1rem',
+            padding: 'clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 20px)',
+            fontSize: 'clamp(0.75rem, 2.5vw, 1.1rem)',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
-            width: '90px',
-            height: '48px'
+            width: 'clamp(65px, 14vw, 120px)',
+            height: 'clamp(36px, 8vh, 50px)',
+            minWidth: '65px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
           }}
         >
           🔊 Play
@@ -293,14 +307,16 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
           style={{
             backgroundColor: '#f44336',
             border: 'none',
-            borderRadius: '12px',
+            borderRadius: 'clamp(8px, 1.5vw, 12px)',
             color: '#fff',
-            padding: '12px 16px',
-            fontSize: '1rem',
+            padding: 'clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 20px)',
+            fontSize: 'clamp(0.75rem, 2.5vw, 1.1rem)',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
-            width: '90px',
-            height: '48px'
+            width: 'clamp(65px, 14vw, 120px)',
+            height: 'clamp(36px, 8vh, 50px)',
+            minWidth: '65px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
           }}
         >
           🗑️ Clear
@@ -313,16 +329,17 @@ const LetterTracingSimple = ({ letterType, onComplete, onBackToMenu, onBackToLan
           style={{ 
             backgroundColor: showNextAnimation ? '#4CAF50' : '#4CAF50',
             border: 'none',
-            borderRadius: '12px',
+            borderRadius: 'clamp(8px, 1.5vw, 12px)',
             color: '#fff',
-            padding: '12px 16px',
-            fontSize: '1rem',
+            padding: 'clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 20px)',
+            fontSize: 'clamp(0.75rem, 2.5vw, 1.1rem)',
             cursor: 'pointer',
             transform: showNextAnimation ? 'scale(1.05)' : 'scale(1)',
-            boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : '0 4px 12px rgba(0, 0, 0, 0.15)',
+            boxShadow: showNextAnimation ? '0 0 15px rgba(76, 175, 80, 0.5)' : '0 2px 8px rgba(0, 0, 0, 0.15)',
             transition: 'all 0.3s ease',
-            width: '90px',
-            height: '48px'
+            width: 'clamp(65px, 14vw, 120px)',
+            height: 'clamp(36px, 8vh, 50px)',
+            minWidth: '65px'
           }}
         >
           {isLastLetter ? 'Finish' : 'Next →'}

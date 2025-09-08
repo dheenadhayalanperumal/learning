@@ -23,7 +23,7 @@
 
 html, body {
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   /* Hide scrollbars */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -40,19 +40,24 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: manipulation;
+  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+  overscroll-behavior: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 #root {
-  width: 100vw;
-  min-height: 100vh;
-  overflow: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   /* Hide scrollbars */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  position: relative;
 }
 
 #root::-webkit-scrollbar {
@@ -62,11 +67,11 @@ body {
 /* App Container */
 .app {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   /* Hide scrollbars */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -279,9 +284,9 @@ body {
 .game-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   /* Hide scrollbars */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -321,6 +326,8 @@ body {
   padding: 20px;
   position: relative;
   min-height: 400px; /* Minimum height for small screens */
+  overflow: hidden;
+  touch-action: none;
 }
 
 .phaser-game-container {
@@ -332,6 +339,8 @@ body {
   background: #f8f9fa;
   border-radius: 8px;
   margin: 0;
+  overflow: hidden;
+  touch-action: none;
 }
 
 .phaser-game-container canvas {
@@ -341,6 +350,10 @@ body {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   background: #ffffff; /* Clean white background for better letter visibility */
   border: 1px solid #e0e0e0; /* Subtle border for worksheet feel */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* Game Controls */
